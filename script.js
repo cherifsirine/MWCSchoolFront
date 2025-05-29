@@ -151,29 +151,55 @@ document.addEventListener("DOMContentLoaded", () => {
   // ----- Step 1 -----
   const step1Form = document.getElementById("step1Form");
   if (step1Form) {
-    step1Form.addEventListener("submit", async (e) => {
-      e.preventDefault();
-      const formData = Object.fromEntries(new FormData(e.target));
-      formData["vollst_x00e4_ndigerName"] = `${formData["Title"]} ${formData["Nachname"]}`;
+  const kinderField = document.getElementById("children");
+  const anzahlField = document.getElementById("numChildren");
 
-      try {
-        const response = await fetch(`${API_BASE}/submit`, {
-          method: "POST",
-          headers: { "Content-Type": "application/json" },
-          body: JSON.stringify(formData),
-        });
+  if (anzahlField) {
+    anzahlField.readOnly = true;
+    anzahlField.value = "0";
+  }
 
-        if (!response.ok) throw new Error(await response.text());
-
-        const result = await response.json();
-        localStorage.setItem("candidateId", result.id);
-        window.location.href = "step2.html";
-      } catch (error) {
-        console.error("❌ Erreur:", error);
-        alert("Erreur lors de la création du candidat.");
+  if (kinderField && anzahlField) {
+    kinderField.addEventListener("change", () => {
+      if (kinderField.value === "Ja") {
+        anzahlField.readOnly = false;
+        anzahlField.value = "";
+      } else {
+        anzahlField.readOnly = true;
+        anzahlField.value = "0";
       }
     });
   }
+
+  step1Form.addEventListener("submit", async (e) => {
+    e.preventDefault();
+
+    if (anzahlField && anzahlField.readOnly) {
+      anzahlField.readOnly = false;
+      anzahlField.value = "0";
+    }
+
+    const formData = Object.fromEntries(new FormData(e.target));
+    formData["vollst_x00e4_ndigerName"] = `${formData["Title"]} ${formData["Nachname"]}`;
+
+    try {
+      const response = await fetch(`${API_BASE}/submit`, {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify(formData),
+      });
+
+      if (!response.ok) throw new Error(await response.text());
+
+      const result = await response.json();
+      localStorage.setItem("candidateId", result.id);
+      window.location.href = "step2.html";
+    } catch (error) {
+      console.error("❌ Erreur:", error);
+      alert("Erreur lors de la création du candidat.");
+    }
+  });
+}
 
   // ----- Step 2 -----
   const step2Form = document.getElementById("step2Form");
