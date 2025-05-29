@@ -157,19 +157,52 @@ document.addEventListener("DOMContentLoaded", () => {
   if (anzahlField) {
     anzahlField.readOnly = true;
     anzahlField.value = "0";
+    anzahlField.style.backgroundColor = "#f0f0f0";
   }
 
   if (kinderField && anzahlField) {
     kinderField.addEventListener("change", () => {
       if (kinderField.value === "Ja") {
         anzahlField.readOnly = false;
+        anzahlField.style.backgroundColor = "#ffffff";
         anzahlField.value = "";
       } else {
         anzahlField.readOnly = true;
+        anzahlField.style.backgroundColor = "#f0f0f0";
         anzahlField.value = "0";
       }
     });
   }
+
+  step1Form.addEventListener("submit", async (e) => {
+    e.preventDefault();
+
+    // Sécurité : forcer la valeur à 0 si le champ est bloqué
+    if (anzahlField && anzahlField.readOnly) {
+      anzahlField.value = "0";
+    }
+
+    const formData = Object.fromEntries(new FormData(e.target));
+    formData["vollst_x00e4_ndigerName"] = `${formData["Title"]} ${formData["Nachname"]}`;
+
+    try {
+      const response = await fetch(`${API_BASE}/submit`, {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify(formData),
+      });
+
+      if (!response.ok) throw new Error(await response.text());
+
+      const result = await response.json();
+      localStorage.setItem("candidateId", result.id);
+      window.location.href = "step2.html";
+    } catch (error) {
+      console.error("❌ Erreur:", error);
+      alert("Erreur lors de la création du candidat.");
+    }
+  });
+}
 
   step1Form.addEventListener("submit", async (e) => {
     e.preventDefault();
