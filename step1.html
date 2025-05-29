@@ -1,0 +1,125 @@
+<!-- step1.html -->
+<!DOCTYPE html>
+<html lang="de">
+<head>
+  <meta charset="UTF-8">
+  <title>Persönliche Angaben</title>
+  <link rel="stylesheet" href="style.css">
+  <script src="script.js" defer></script>
+  <link rel="icon" type="image/png" href="MWC.png">
+</head>
+<body style="background-color: #f0f2f5; margin: 0; padding: 0;">
+  <div class="container" >
+    <div class="sidebar">
+  <div class="sidebar-header">
+    <img src="MWC.png" alt="Logo" class="logo" style="margin-left: 80px;"><br/><br/>
+        <h2 class="sidebar-title" style="margin-bottom: 10px;">Kandidatenformular</h2>
+      </div>
+      <ul class="milestone">
+        <li class="active">Persönliche Angaben</li>
+        <li>Sprachliche Angaben</li>
+        <li>Vermittlung</li>
+        <li>Überprüfung</li>
+      </ul>
+    </div>
+    <div class="form-wrapper">
+      <form id="step1Form" class="form-grid three-columns">
+        <div class="form-group">
+          <label for="firstName">Vorname</label>
+          <input type="text" id="firstName" name="Title" required>
+        </div>
+        <div class="form-group">
+          <label for="lastName">Nachname</label>
+          <input type="text" id="lastName" name="Nachname" required>
+        </div>
+
+        <div class="form-group">
+          <label for="cin">Personalausweisnummer</label>
+          <input type="number" id="cin" name="CIN" required min="0" inputmode="numeric" pattern="[0-9]*" class="no-spin">
+        </div>
+        <div class="form-group">
+          <label for="email">E-Mail-Adresse</label>
+          <input type="email" id="email" name="E_x002d_Mail_x002d_Adresse">
+        </div>
+
+        <div class="form-group">
+          <label for="phone">Telefonnummer</label>
+          <input  type="tel"  id="phone"  name="Telefonnummer"  maxlength="8"  pattern="[0-9]{8}"  inputmode="numeric"  required/>
+        </div>
+        <div class="form-group">
+          <label for="age">Alter</label>
+          <input type="number" id="age" name="Alter" min="0" inputmode="numeric" pattern="[0-9]*" class="no-spin">
+        </div>
+
+        <div class="form-group">
+          <label for="maritalStatus">Familienstand</label>
+          <select id="maritalStatus" name="Familienstand">
+            <option value="" disabled selected>Bitte wählen...</option>
+            <option value="Ledig">Ledig</option>
+            <option value="Verheiratet">Verheiratet</option>
+            <option value="Geschieden">Geschieden</option>
+            <option value="Verwitwet">Verwitwet</option>
+          </select>
+        </div>
+        <div class="form-group">
+          <label for="children">Kinder</label>
+          <select id="children" name="Kinder">
+            <option value="" disabled selected>Bitte wählen...</option>
+            <option value="Ja">Ja</option>
+            <option value="Nein">Nein</option>
+          </select>
+        </div>
+
+        <div class="form-group">
+          <label for="numChildren">Anzahl der Kinder</label>
+          <input type="number" id="numChildren" name="AnzahlderKinder" value="0" min="0" readonly>
+        </div>
+        <div class="form-group">
+          <label for="jobTitle">Berufsbezeichnung</label>
+          <input type="text" id="jobTitle" name="Berufsbezeichnung">
+        </div>
+
+        <div class="form-group">
+          <label for="experience">Berufserfahrung</label>
+          <select id="experience" name="AnzahlderBerufsjahre">
+            <option value="" disabled selected>Bitte wählen...</option>
+            <option value="Keine">Keine</option>
+            <option value="1 bis 6 Monate">1 bis 6 Monate</option>
+            <option value="7 bis 11 Monate">7 bis 11 Monate</option>
+            <option value="1 Jahr">1 Jahr</option>
+            <option value="2 Jahre">2 Jahre</option>
+          </select>
+        </div>
+        <div class="form-group">
+          <label for="school">Schule</label>
+          <select id="school" name="Schule">
+            <option value="" disabled selected>Bitte wählen...</option>
+            <option value="Tunis">Tunis</option>
+            <option value="Sousse">Sousse</option>
+          </select>
+        </div>
+
+        <div class="form-group">
+          <label for="entryDate">Eintrittsdatum in die Schule</label>
+          <input type="date" id="entryDate" name="Eintrittsdatum_des_Kandidaten_in">
+        </div>
+        <div class="form-group">
+          <label for="behavior">Verhalten</label>
+          <input type="text" id="behavior" name="Verhalten_des_Kandidaten">
+        </div>
+
+        <div class="form-group">
+          <label for="belonging">Zugehörigkeit</label>
+          <select id="belonging" name="Zugeh_x00f6_rigkeit">
+            <option value="" disabled selected>Bitte wählen...</option>
+            <option value="Intern">Intern</option>
+            <option value="Extern">Extern</option>
+          </select>
+        </div>
+
+        <button type="submit" id="nextStep1">Weiter</button>
+      </form>
+    </div>
+  </div>
+</body>
+</html>

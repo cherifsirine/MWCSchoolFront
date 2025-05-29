@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Neuen Lehrer hinzufügen</title>
+  <link rel="stylesheet" href="style.css" />
+  <link rel="icon" type="image/png" href="MWC.png" />
+</head>
+<body>
+  <div class="form-container">
+    <h2>Lehrer hinzufügen</h2>
+    <p>
+      Bitte gib die Informationen für den neuen Lehrer ein.
+      Die Daten werden in der SharePoint-Liste <strong>Lehrer</strong> gespeichert.
+    </p>
+
+    <!-- ✅ Notification -->
+    <div id="notification" class="notification" role="alert" aria-live="assertive"></div>
+
+    <!-- ✅ Teacher Form -->
+    <form id="teacherForm" class="form-grid" novalidate>
+      <div>
+        <label for="teacherName">Name des Lehrers:</label>
+        <input
+          type="text"
+          id="teacherName"
+          name="teacherName"
+          required
+          placeholder="Max Mustermann"
+        />
+      </div>
+
+      <div>
+        <label for="phoneNumber">Telefonnummer:</label>
+        <input
+          type="tel"
+          id="phoneNumber"
+          name="phoneNumber"
+          maxlength="8"
+          pattern="[0-9]{8}"
+          required
+          placeholder="01234567"
+          inputmode="numeric"
+        />
+      </div>
+
+      <div class="full-width">
+        <button type="submit">📩 Lehrer speichern</button>
+      </div>
+    </form>
+  </div>
+
+  <script src="script.js" defer></script>
+</body>
+</html>

@@ -1,0 +1,144 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+  <meta charset="UTF-8">
+  <title>Überprüfung der Angaben</title>
+  <link rel="stylesheet" href="style.css">
+  <script src="script.js" defer></script>
+  <link rel="icon" type="image/png" href="MWC.png">
+</head>
+<body style="background-color: #f0f2f5; margin: 0; padding: 0;">
+  <div class="container">
+    <div class="sidebar">
+      <div class="sidebar-header">
+        <img src="MWC.png" alt="Logo" class="logo" style="margin-left: 80px;"><br/><br/>
+        <h2 class="sidebar-title">Kandidatenformular</h2>
+      </div>
+      <ul class="milestone">
+        <li class="active">Persönliche Angaben</li>
+        <li class="active">Sprachliche Angaben</li>
+        <li class="active">Vermittlung</li>
+        <li class="active">Überprüfung</li>
+      </ul>
+    </div>
+
+    <div class="form-wrapper">
+      <form id="reviewForm" class="form-grid three-columns">
+        <!-- Tous les champs combinés des 3 formulare, maintenant avec Labels -->
+
+        <!-- step1.html -->
+        <label>Vorname <input type="text" name="Title"></label>
+        <label>Nachname <input type="text" name="Nachname"></label>
+        <label>Personalausweisnummer <input type="number" name="CIN"></label>
+        <label>E-Mail <input type="email" name="E_x002d_Mail_x002d_Adresse"></label>
+        <label>Telefonnummer <input type="tel" name="Telefonnummer"></label>
+        <label>Alter <input type="number" name="Alter"></label>
+        <label>Familienstand <select name="Familienstand">
+          <option value="">Bitte wählen</option>
+          <option value="Ledig">Ledig</option>
+          <option value="Verheiratet">Verheiratet</option>
+          <option value="Geschieden">Geschieden</option>
+          <option value="Verwitwet">Verwitwet</option>
+        </select></label>
+        <label>Kinder <select name="Kinder">
+          <option value="">Bitte wählen</option>
+          <option value="Ja">Ja</option>
+          <option value="Nein">Nein</option>
+        </select></label>
+        <label>Anzahl der Kinder <input type="number" name="AnzahlderKinder"></label>
+        <label>Berufsbezeichnung <input type="text" name="Berufsbezeichnung"></label>
+        <label>Berufserfahrung <select name="AnzahlderBerufsjahre">
+          <option value="">Bitte wählen</option>
+          <option value="Keine">Keine</option>
+          <option value="1 bis 6 Monate">1 bis 6 Monate</option>
+          <option value="7 bis 11 Monate">7 bis 11 Monate</option>
+          <option value="1 Jahr">1 Jahr</option>
+          <option value="2 Jahre">2 Jahre</option>
+        </select></label>
+        <label>Schule <select name="Schule">
+          <option value="">Bitte wählen</option>
+          <option value="Tunis">Tunis</option>
+          <option value="Sousse">Sousse</option>
+        </select></label>
+        <label>Eintrittsdatum <input type="date" name="Eintrittsdatum_des_Kandidaten_in"></label>
+        <label>Verhalten <input type="text" name="Verhalten_des_Kandidaten"></label>
+        <label>Zugehörigkeit <select name="Zugeh_x00f6_rigkeit">
+          <option value="">Bitte wählen</option>
+          <option value="Intern">Intern</option>
+          <option value="Extern">Extern</option>
+        </select></label>
+
+        <!-- step2.html -->
+        <label>Sprachniveau <select name="Niveaux">
+          <option value="">Bitte wählen</option>
+          <option value="A1">A1</option>
+          <option value="A2">A2</option>
+          <option value="B1">B1</option>
+          <option value="B2">B2</option>
+        </select></label>
+        <label>Unterniveau <select name="Unterniveau"></select></label>
+        <label>B1 Testdatum <input type="date" name="Testdatum_B1"></label>
+        <label>B1 Ergebnis <input type="number" name="Testergebnis_B1"></label>
+        <label>Gruppe A1.1 <input type="text" name="Anzahl_Stunden_A1_x002e_1"></label>
+        <label>Gruppe A1.2 <input type="text" name="Anzahl_Stunden_A1_x002e_2"></label>
+        <label>Gruppe A2.1 <input type="text" name="Anzahl_Stunden_A2_x002e_1"></label>
+        <label>Gruppe A2.2 <input type="text" name="Anzahl_Stunden_A2_x002e_2"></label>
+        <label>Gruppe B1.1 <input type="text" name="Anzahl_Stunden_B1_x002e_1"></label>
+        <label>Gruppe B1.2 <input type="text" name="Anzahl_Stunden_B1_x002e_2"></label>
+        <label>Gruppe B2.1 <input type="text" name="Anzahl_Stunden_B2_x002e_1"></label>
+        <label>Gruppe B2.2 <input type="text" name="Anzahl_Stunden_B2_x002e_2"></label>
+
+        <!-- step3.html -->
+        <label>Vorgespräch Datum <input type="date" name="Datum_des_Vorgespr_x00e4_chs"></label>
+        <label>Vorgespräch Ergebnis <input type="text" name="Ergebnis_des_Vorgespr_x00e4_chs"></label>
+        <label>Bemerkung <input type="text" name="Bemerkung"></label>
+        <label>Vorstellungsgespräch <select name="Vorstellungsgespr_x00e4_ch">
+          <option value="">Bitte wählen</option>
+          <option value="Ja">Ja</option>
+          <option value="Nein">Nein</option>
+        </select></label>
+        <label>Vorstellungsgespräch Datum <input type="date" name="Datum_Vorstellungsgespr_x00e4_ch"></label>
+        <label>Defizitbescheid <select name="Defizitbescheid">
+          <option value="">Bitte wählen</option>
+          <option value="Ja">Ja</option>
+          <option value="Nein">Nein</option>
+        </select></label>
+        <label>Arbeitgeber <input type="text" name="Arbeitgeber"></label>
+        <label>Bundesland <input type="text" name="Bundesland"></label>
+        <label>Aktuelle Phase <select name="Aktuelle_Phase">
+          <option value="">Bitte wählen</option>
+          <option value="Start/Kandidaten">Start/Kandidaten</option>
+          <option value="Deutschkurse">Deutschkurse</option>
+          <option value="Visum Antrag">Visum Antrag</option>
+          <option value="Einreise nach Deutschland, Arbeitsbeginn">Einreise</option>
+          <option value="Anerkennungsverfahren und B2 Prüfung">Anerkennung</option>
+        </select></label>
+        <label>Reisedatum <input type="date" name="Reisedatum"></label>
+        <label>Anerkennungsbeginn <input type="date" name="Starte_Anerkennungsverfahren"></label>
+        <label>Vermittlungsstand <select name="Vermittlungsstand">
+          <option value="">Bitte wählen</option>
+          <option value="In Vermittlung">In Vermittlung</option>
+          <option value="Schon vermittelt">Schon vermittelt</option>
+        </select></label>
+        <label>Vorabzustimmung <select name="Vorabzustimmung">
+          <option value="">Bitte wählen</option>
+          <option value="Ja">Ja</option>
+          <option value="Nein">Nein</option>
+        </select></label>
+        <label>Visum <select name="Visum">
+          <option value="">Bitte wählen</option>
+          <option value="Ja">Ja</option>
+          <option value="Nein">Nein</option>
+        </select></label>
+        <label>Dokumentenübersetzung <select name="Dokumenten_x00fc_bersetzung">
+          <option value="">Bitte wählen</option>
+          <option value="Ja">Ja</option>
+          <option value="Nein">Nein</option>
+        </select></label>
+
+        <button type="submit">Änderungen speichern</button>
+      </form>
+    </div>
+  </div>
+</body>
+</html>

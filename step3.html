@@ -1,0 +1,140 @@
+<!-- step3.html -->
+<!DOCTYPE html>
+<html lang="de">
+<head>
+  <meta charset="UTF-8">
+  <title>Vermittlung</title>
+  <link rel="stylesheet" href="style.css">
+  <link rel="icon" type="image/png" href="MWC.png">
+  <script src="script.js" defer></script>
+</head>
+<body style="background-color: #f0f2f5; padding: 0px 0; overflow-y: auto;">
+  <div class="container" >
+    <div class="sidebar">
+      <div class="sidebar-header">
+    <img src="MWC.png" alt="Logo" class="logo" style="margin-left: 80px;"><br/><br/>
+        <h2 class="sidebar-title" style="margin-bottom: 10px;">Kandidatenformular</h2>
+      </div>
+      <ul class="milestone">
+        <li class="active">Persönliche Angaben</li>
+        <li class="active">Sprachliche Angaben</li>
+        <li class="active">Vermittlung</li>
+        <li>Überprüfung</li>
+      </ul>
+    </div>
+    <div class="form-wrapper">
+      <form id="step3Form" class="form-grid three-columns">
+        <div class="form-group">
+          <label for="interviewDate">Datum des Vorgesprächs</label>
+          <input type="date" id="interviewDate" name="Datum_des_Vorgespr_x00e4_chs">
+        </div>
+
+        <div class="form-group">
+          <label for="interviewResult">Ergebnis des Vorgesprächs</label>
+          <input type="text" id="interviewResult" name="Ergebnis_des_Vorgespr_x00e4_chs">
+        </div>
+
+        <div class="form-group">
+          <label for="comment">Bemerkung</label>
+          <input type="text" id="comment" name="Bemerkung">
+        </div>
+
+        <div class="form-group">
+          <label for="jobInterview">Vorstellungsgespräch</label>
+          <select id="jobInterview" name="Vorstellungsgespr_x00e4_ch">
+            <option value="" disabled selected>Bitte wählen...</option>
+            <option value="Ja">Ja</option>
+            <option value="Nein">Nein</option>
+          </select>
+        </div>
+
+        <div class="form-group">
+          <label for="jobInterviewDate">Datum des Vorstellungsgesprächs</label>
+          <input type="date" id="jobInterviewDate" name="Datum_Vorstellungsgespr_x00e4_ch">
+        </div>
+
+        <div class="form-group">
+          <label for="deficitNotice">Defizitbescheid</label>
+          <select id="deficitNotice" name="Defizitbescheid">
+            <option value="" disabled selected>Bitte wählen...</option>
+            <option value="Ja">Ja</option>
+            <option value="Nein">Nein</option>
+          </select>
+        </div>
+
+        <div class="form-group">
+          <label for="employer">Arbeitgeber</label>
+          <input type="text" id="employer" name="Arbeitgeber">
+        </div>
+
+        <div class="form-group">
+          <label for="region">Bundesland</label>
+          <input type="text" id="region" name="Bundesland">
+        </div>
+
+        <div class="form-group">
+          <label for="phase">Aktuelle Phase</label>
+          <select id="phase" name="Aktuelle_Phase">
+            <option value="" disabled selected>Bitte wählen...</option>
+            <option value="Start/Kandidaten">Start/Kandidaten</option>
+            <option value="Deutschkurse">Deutschkurse (A1 bis B1)</option>
+            <option value="Visum Antrag">B1 Prüfung</option>
+            <option value="Start/Kandidaten">B2 Deutschkurs</option>
+            <option value="Deutschkurse">Visum Antrag</option>
+            <option value="Visum Antrag">Einreise nach Deutschland, Arbeitsbeginn</option>
+            <option value="Visum Antrag">Anerkennungsverfahren und B2 Prüfung</option>
+          </select>
+        </div>
+
+        <div class="form-group">
+          <label for="travelDate">Reisedatum</label>
+          <input type="date" id="travelDate" name="Reisedatum">
+        </div>
+
+        <div class="form-group">
+          <label for="recognition">Beginn des Anerkennungsverfahrens</label>
+          <input type="date" id="recognition" name="Starte_Anerkennungsverfahren">
+        </div>
+
+        <div class="form-group">
+          <label for="placementStatus">Vermittlungsstand</label>
+          <select id="placementStatus" name="Vermittlungsstand">
+            <option value="" disabled selected>Bitte wählen...</option>
+            <option value="In Vermittlung">In Vermittlung</option>
+            <option value="Schon vermittelt">Schon vermittelt</option>
+          </select>
+        </div>
+
+        <div class="form-group">
+          <label for="preApproval">Vorabzustimmung</label>
+          <select id="preApproval" name="Vorabzustimmung">
+            <option value="" disabled selected>Bitte wählen...</option>
+            <option value="Ja">Ja</option>
+            <option value="Nein">Nein</option>
+          </select>
+        </div>
+
+        <div class="form-group">
+          <label for="visa">Visum</label>
+          <select id="visa" name="Visum">
+            <option value="" disabled selected>Bitte wählen...</option>
+            <option value="Ja">Ja</option>
+            <option value="Nein">Nein</option>
+          </select>
+        </div>
+
+        <div class="form-group">
+          <label for="docTranslation">Dokumentenübersetzung</label>
+          <select id="docTranslation" name="Dokumenten_x00fc_bersetzung">
+            <option value="" disabled selected>Bitte wählen...</option>
+            <option value="Ja">Ja</option>
+            <option value="Nein">Nein</option>
+          </select>
+        </div>
+
+        <button type="submit" id="nextStep3">Weiter</button>
+      </form>
+    </div>
+  </div>
+</body>
+</html>

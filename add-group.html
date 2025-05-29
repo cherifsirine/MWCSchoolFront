@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Neue Gruppe hinzufügen</title>
+  <link rel="stylesheet" href="style.css" />
+  <link rel="icon" type="image/png" href="MWC.png">
+</head>
+<body>
+  <div id="notification" class="notification"></div>
+  <div class="form-container">
+    <h2>Neue Gruppe erstellen</h2>
+    <p>Bitte fülle das folgende Formular aus, um eine neue Gruppe zur SharePoint-Liste <strong>Gruppen</strong> hinzuzufügen.</p>
+<div id="notification" class="notification"></div>
+    <form id="groupForm" class="form-grid">
+        <div id="confirmationMessage" class="hidden-message"></div>
+      
+  <!-- Niveau en haut -->
+  <div>
+    <label for="Sousniveau">Niveau:</label>
+    <select id="Sousniveau" name="Sousniveau" required>
+      <option value="">Bitte wählen</option>
+      <option value="A1">A1</option>
+      <option value="A2">A2</option>
+      <option value="B1">B1</option>
+      <option value="B2">B2</option>
+    </select>
+  </div>
+
+  <div>
+    <label for="SousNiveau0">UnterNiveau:</label>
+    <select id="SousNiveau0" name="SousNiveau0" required>
+      <option value="">Bitte wählen</option>
+      <option value="A 1.1">A 1.1</option>
+      <option value="A 1.2">A 1.2</option>
+      <option value="A 2.1">A 2.1</option>
+      <option value="A 2.2">A 2.2</option>
+      <option value="B 1.1">B 1.1</option>
+      <option value="B 1.2">B 1.2</option>
+      <option value="B 2.1">B 2.1</option>
+      <option value="B 2.2">B 2.2</option>
+    </select>
+  </div>
+
+   <div>
+    <label for="Startdate">Startdatum:</label>
+    <input type="date" id="Startdate" name="Startdate" required />
+  </div>
+
+  <div>
+    <label for="Enddate">Enddatum:</label>
+    <input type="date" id="Enddate" name="Enddate" required />
+  </div>
+
+  <!-- Gruppenname avec préfixe -->
+     <div>
+    <label for="Prof">Professor(in):</label>
+    <select id="Prof" name="Prof" required> 
+    <option value="">Bitte wählen</option>
+</select>
+  </div>
+  <div>
+    <label for="Title">Gruppenname:</label>
+    <input type="text" id="Title" name="Title" required />
+  </div>
+
+
+
+ 
+
+
+
+      <div class="full-width">
+        <button type="submit">Gruppe speichern</button>
+      </div>
+    </form>
+  </div>
+
+  <script src="script.js" defer></script>
+</body>
+</html>

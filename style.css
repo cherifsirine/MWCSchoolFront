@@ -1,0 +1,534 @@
+/* ===== PAGE : accueil.html ===== */
+.startscreen body {
+  margin: 0;
+  font-family: Arial, sans-serif;
+  background-color: #f1f6fa;
+  display: block; /* ✅ plus de flex-centering vertical */
+  min-height: 100vh;
+}
+
+/* Conteneur centré */
+.screen {
+  width: 100%;
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 20px;
+  box-sizing: border-box;
+  position: relative;
+  text-align: center;
+}
+
+/* Logo bien centré */
+.screen .logo {
+  width: 200px;
+  margin: 0 auto 10px auto;
+}
+
+/* Image responsive avec moins d'espace dessous */
+.welcome-image {
+  width: 100%;
+  max-width: 900px;
+  height: auto;
+  margin-top: 10px;
+  margin-bottom: 0; /* ✅ supprime l’espace excessif */
+}
+
+/* Bouton Starten en haut à droite */
+.start-button {
+  position: absolute;
+  top: 20px;
+  right: 40px;
+  padding: 10px 24px;
+  font-size: 18px;
+  color: #0077b6;
+  background: none;
+  border: none;
+  cursor: pointer;
+  transition: color 0.3s ease;
+}
+
+.start-button:hover {
+  color: #00a862;
+}
+
+
+
+
+/* menu */
+.menu-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 40px 20px;
+  gap: 25px;
+}
+
+.menu-button {
+  width: 80vw;
+  max-width: 500px;
+  padding: 30px 20px;
+  border: none;
+  border-radius: 20px;
+  color: white;
+  font-family: Arial, sans-serif;
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+  cursor: pointer;
+  text-align: left;
+  box-shadow:
+  0 4px 12px rgba(0, 0, 0, 0.2),
+  0 8px 24px rgba(0, 0, 0, 0.25);
+
+  opacity: 0;
+  transform: translateY(0);
+  animation: fadeInUp 0.5s ease forwards;
+  transition: all 0.25s ease-in-out;
+}
+
+.menu-button:hover {
+  --y: -3px;
+  transform: scale(1.03) translateY(var(--y));
+  box-shadow: 0 12px 32px rgba(0, 0, 0, 0.25);
+  z-index: 2;
+}
+
+
+.menu-button:nth-child(1) {
+  animation-delay: 0.1s;
+}
+.menu-button:nth-child(2) {
+  animation-delay: 0.25s;
+}
+.menu-button:nth-child(3) {
+  animation-delay: 0.4s;
+}
+
+@keyframes fadeInUp {
+  from {
+    opacity: 0;
+    --y: 20px;
+  }
+  to {
+    opacity: 1;
+    --y: 0;
+  }
+}
+
+
+.main-text {
+  font-size: 24px;
+  font-weight: bold;
+  display: block;
+  margin-bottom: 8px;
+}
+
+.sub-text {
+  font-size: 14px;
+  opacity: 0.9;
+}
+
+/* Button specific colors */
+.button-1 {
+  background: rgba(64, 185, 60, 0.8);
+}
+
+.button-2 {
+  background: rgba(4, 66, 116, 0.8);
+}
+
+.button-3 {
+  background: rgba(16, 130, 206, 0.8);
+}
+
+
+
+/*add group*/
+/* ===== PAGE : Neuen Lehrer hinzufügen ===== */
+
+.form-container {
+  max-width: 800px;           /* ✅ plus large */
+  margin: 60px auto;          /* ✅ centré verticalement */
+  padding: 30px 40px;         /* ✅ plus d’espace intérieur */
+  background-color: white;    /* ✅ fond blanc */
+  border-radius: 20px;
+  color: #000000;             /* ✅ texte noir */
+  box-shadow:
+    0 8px 20px rgba(0, 0, 0, 0.1),
+    0 12px 40px rgba(0, 0, 0, 0.05); /* ✅ ombre douce */
+}
+
+/* Titre */
+.form-container h2 {
+  margin-bottom: 10px;
+  color: #003b5c;
+}
+
+/* Texte d’intro */
+.form-container p {
+  font-size: 14px;
+  margin-bottom: 20px;
+  color: #333;
+}
+
+/* Grille */
+.form-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  column-gap: 40px;
+  row-gap: 20px;
+}
+
+/* Champs */
+.form-grid label {
+  font-weight: bold;
+  color: #000;
+}
+
+.form-grid input,
+.form-grid select {
+  width: 100%;
+  padding: 10px;
+  margin-top: 5px;
+  border-radius: 8px;
+  border: 1px solid #ccc;       /* ✅ fin contour gris */
+  font-size: 15px;
+  background-color: #fff;       /* ✅ fond blanc */
+  color: #000;
+}
+
+/* Champs sur toute la largeur */
+.full-width {
+  grid-column: 1 / -1;
+  display: flex;
+  justify-content: center;     /* ✅ bouton centré */
+}
+
+.full-width button {
+  padding: 12px 32px;
+  border: none;
+  border-radius: 10px;
+  background-color: #1082ce;   /* ✅ bleu par défaut */
+  color: #fff;
+  font-weight: bold;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  font-size: 16px;
+}
+
+.full-width button:hover {
+  background-color: #6ccf7c;   /* ✅ fond vert */
+  color: #000000;              /* ✅ texte noir */
+}
+
+
+
+#confirmationMessage {
+  background-color: #d4edda;
+  color: #155724;
+  padding: 15px;
+  margin-bottom: 20px;
+  border-radius: 10px;
+  text-align: center;
+  font-weight: bold;
+  box-shadow: 0 6px 16px rgba(0, 0, 0, 0.15);
+  transition: opacity 0.5s ease-in-out;
+}
+
+.hidden-message {
+  display: none;
+  opacity: 0;
+}
+
+.visible-message {
+  display: block;
+  opacity: 1;
+}
+
+
+.notification {
+  position: fixed;
+  top: 20px;
+  left: 50%;
+  transform: translateX(-50%) translateY(0);
+  color: #13b813;
+  background: transparent;
+  font-size: 18px;
+  font-weight: bold;
+  opacity: 0;
+  z-index: 9999;
+  pointer-events: none;
+  transition: all 0.5s ease-in-out;
+}
+
+.notification.show {
+  opacity: 1;
+  animation: fadeAndFloat 0.6s ease-in-out 4.4s forwards;
+}
+
+@keyframes fadeAndFloat {
+  to {
+    opacity: 0;
+    transform: translateX(-50%) translateY(-20px);
+  }
+}
+
+/* add candidate */
+/* ---- GLOBAL ---- */
+/* Global Layout */
+html, body {
+  height: auto;
+  min-height: 100%;
+  overflow-x: hidden;
+  margin: 0;
+  padding: 0;
+  font-family: Arial, sans-serif;
+  background-color: #f0f2f5;
+}
+
+/* Container principale */
+.container {
+  max-width: 1200px;
+  width: 95%;
+  background-color: white;
+  border-radius: 20px;
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
+  display: flex;
+  flex-direction: row;
+  margin: 20px auto;
+  overflow: hidden;
+}
+
+/* Sidebar */
+.sidebar {
+  width: 30%;
+  background-color: #e6f1f8;
+  padding: 40px 30px;
+  align-items: flex-start;
+  display: flex;
+  flex-direction: column;
+}
+
+.sidebar-header {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin-bottom: 20px;
+}
+
+.logo {
+  max-width: 120px;
+  margin-bottom: 30px;
+  display: block;
+}
+
+.sidebar-title {
+  font-size: 18px;
+  margin: 0 0 20px;
+  color: #003b5c;
+  text-align: center;
+}
+
+.milestone {
+  counter-reset: step;
+  margin-left: -20px;
+}
+
+.milestone li {
+  position: relative;
+  margin-bottom: 40px;
+  list-style: none;
+  font-size: 16px;
+  color: #003b5c;
+  padding-left: 40px; /* ✅ rapproche le texte du cercle */
+}
+
+.milestone li::before {
+  counter-increment: step;
+  content: counter(step);
+  width: 24px;
+  height: 24px;
+  background: #ddd;
+  border: none;
+  border-radius: 50%;
+  color: #333;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-weight: bold;
+  position: absolute;
+  left: 0;
+  top: 0;
+  z-index: 1;
+  font-size: 13px;
+}
+
+.milestone li.active::before {
+  content: "✓";
+  background-color: #0077b6;
+  color: white;
+}
+
+.milestone li::after {
+  content: "";
+  position: absolute;
+  top: 24px;
+  left: 11px; /* ✅ centré par rapport au cercle */
+  height: 40px;
+  width: 2px;
+  background: #0077b6;
+  z-index: 0;
+}
+
+.milestone li:last-child::after {
+  display: none;
+}
+
+.milestone li:not(.active)::after {
+  background: repeating-linear-gradient(
+    to bottom,
+    #0077b6,
+    #0077b6 4px,
+    transparent 4px,
+    transparent 8px
+  );
+}
+
+/* Form wrapper */
+.form-wrapper {
+  width: 70%;
+  padding: 50px 40px;
+  background-color: white;
+  overflow-y: auto;
+}
+
+.form-grid.three-columns {
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+  gap: 30px 30px;
+}
+
+.form-group {
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  align-items: stretch;
+  min-height: 110px; /* 👈 même hauteur pour tous les blocs */
+}
+
+.form-group label {
+  height: 40px;            /* 👈 fixe la hauteur du label */
+  display: flex;
+  align-items: flex-end;   /* 👈 aligne le texte du label en bas */
+  font-weight: bold;
+  line-height: 1.2;
+  margin-bottom: 5px;
+}
+
+
+.form-group input,
+.form-group select {
+  padding: 10px;
+  font-size: 15px;
+  border: 1px solid #ccc;
+  border-radius: 12px;
+}
+
+/* Submit button */
+button[type="submit"] {
+  grid-column: 2;         /* ✅ placer le bouton dans la colonne centrale */
+  justify-self: center;   /* ✅ centrer à l’intérieur de cette colonne */
+  padding: 10px 32px;
+  background-color: transparent;
+  color: #0077b6;
+  border: none;
+  font-size: 16px;
+  cursor: pointer;
+  border-radius: 6px;
+  transition: all 0.3s ease;
+}
+
+button[type="submit"]:hover {
+  background-color: #6ccf7c;
+  color: #000000;
+}
+
+
+input.no-spin::-webkit-outer-spin-button,
+input.no-spin::-webkit-inner-spin-button {
+  -webkit-appearance: none;
+  margin: 0;
+}
+
+
+
+
+
+/* Responsive styles */
+
+/* Tablets, small laptops */
+@media (max-width: 1024px) {
+  .container {
+    flex-direction: column;
+  }
+
+  .sidebar,
+  .form-wrapper {
+    width: 100%;
+  }
+
+ .sidebar {
+  width: 30%;
+  background-color: #e6f1f8;
+  padding: 40px 20px 40px 10px; /* top, right, bottom, left → tiré à gauche */
+  align-items: flex-start;
+  display: flex;
+  flex-direction: column;
+}
+
+
+  .form-wrapper {
+    border-radius: 0 0 20px 20px;
+    padding: 30px 20px;
+  }
+
+  .form-grid.three-columns {
+    grid-template-columns: 1fr 1fr;
+    gap: 20px;
+  }
+
+  button[type="submit"] {
+    grid-column: span 2;
+  }
+}
+
+/* Phones */
+@media (max-width: 600px) {
+  .form-grid.three-columns {
+    grid-template-columns: 1fr;
+    gap: 15px;
+  }
+
+  .sidebar {
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .milestone li {
+    font-size: 14px;
+    padding-left: 30px;
+  }
+
+  .milestone li::before {
+    width: 32px;
+    height: 32px;
+    font-size: 15px;
+  }
+
+  .form-wrapper {
+    padding: 20px 15px;
+  }
+
+  button[type="submit"] {
+    grid-column: span 1;
+  }
+}
