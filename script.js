@@ -1,4 +1,5 @@
 document.addEventListener("DOMContentLoaded", () => {
+  const API_BASE = "https://mwcschoolback-production.up.railway.app";
   const groupForm = document.getElementById("groupForm");
   const niveauSelect = document.getElementById("Sousniveau");
   const sousNiveauSelect = document.getElementById("SousNiveau0");
@@ -49,7 +50,7 @@ if (startDateInput) {
   // Chargement des profs depuis SharePoint
   async function loadLehrerList() {
   try {
-    const response = await fetch("http://localhost:3000/lehrer");
+    const response = await fetch("${API_BASE}/lehrer");
     const lehrer = await response.json(); // tableau d'objets : { id, name }
 
     if (Array.isArray(lehrer) && profSelect) {
@@ -115,7 +116,7 @@ const data = {
 
 
       try {
-        const response = await fetch("http://localhost:3000/add-group", {
+        const response = await fetch("${API_BASE}/add-group", {
           method: "POST",
           headers: {
             "Content-Type": "application/json",
@@ -164,7 +165,7 @@ const data = {
       const phone = phoneNumber.value.trim();
 
       try {
-        const response = await fetch("http://localhost:3000/api/teachers", {
+        const response = await fetch("${API_BASE}/teachers", {
           method: "POST",
           headers: { "Content-Type": "application/json" },
           body: JSON.stringify({ name, phone })
@@ -242,7 +243,7 @@ async function createCandidateAndGoToStep2() {
     console.log("📤 Données envoyées :", data);
 
     try {
-        const response = await fetch("http://localhost:3000/submit", {
+        const response = await fetch("${API_BASE}/submit", {
             method: "POST",
             headers: { "Content-Type": "application/json" },
             body: JSON.stringify(data)
@@ -330,7 +331,7 @@ async function handleStep1(e) {
   e.preventDefault();
   const formData = Object.fromEntries(new FormData(e.target));
 
-  const response = await fetch("http://localhost:3000/submit", {
+  const response = await fetch("${API_BASE}/submit", {
     method: "POST",
     headers: { "Content-Type": "application/json" },
     body: JSON.stringify(formData),
@@ -358,7 +359,7 @@ async function handleStep2(e) {
 
   console.log("📤 Données envoyées (Step 2):", formData);        // ✅ ensuite on log
 
-  const response = await fetch(`http://localhost:3000/update/${id}`, {
+  const response = await fetch(`${API_BASE}/update/${id}`, {
     method: "PATCH",
     headers: { "Content-Type": "application/json" },
     body: JSON.stringify(formData),
@@ -382,7 +383,7 @@ async function handleStep3(e) {
   const formData = Object.fromEntries(new FormData(e.target));
   console.log("📤 Données envoyées (Step 3):", formData);
 
-  const response = await fetch(`http://localhost:3000/update/${id}`, {
+  const response = await fetch(`${API_BASE}/update/${id}`, {
     method: "PATCH",
     headers: { "Content-Type": "application/json" },
     body: JSON.stringify(formData),
@@ -434,7 +435,7 @@ async function populateGroups() {
     ["groupB22", "Niveau B2.2"]
   ];
 
-  const response = await fetch("http://localhost:3000/groupes");
+  const response = await fetch("${API_BASE}/groupes");
   const groups = await response.json();
 
   groupIds.forEach(([selectId, prefix]) => {
@@ -463,7 +464,7 @@ document.addEventListener("DOMContentLoaded", async () => {
 
   try {
     // 🔁 Récupération des données du candidat
-    const response = await fetch(`http://localhost:3000/get/${candidateId}`);
+    const response = await fetch(`${API_BASE}/get/${candidateId}`);
     const data = await response.json();
 
     // 🧠 Stocker l'état initial pour comparaison
@@ -504,7 +505,7 @@ document.addEventListener("DOMContentLoaded", async () => {
         return;
       }
 
-      const patchResponse = await fetch(`http://localhost:3000/update/${candidateId}`, {
+      const patchResponse = await fetch(`${API_BASE}/update/${candidateId}`, {
         method: "PATCH",
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify(updatedData),
