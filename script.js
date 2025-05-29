@@ -50,7 +50,7 @@ if (startDateInput) {
   // Chargement des profs depuis SharePoint
   async function loadLehrerList() {
   try {
-    const response = await fetch("${API_BASE}/lehrer");
+    const response = await fetch(`${API_BASE}/lehrer`);
     const lehrer = await response.json(); // tableau d'objets : { id, name }
 
     if (Array.isArray(lehrer) && profSelect) {
@@ -116,7 +116,7 @@ const data = {
 
 
       try {
-        const response = await fetch("${API_BASE}/add-group", {
+        const response = await fetch(`${API_BASE}/add-group`, {
           method: "POST",
           headers: {
             "Content-Type": "application/json",
@@ -165,7 +165,7 @@ const data = {
       const phone = phoneNumber.value.trim();
 
       try {
-        const response = await fetch("${API_BASE}/teachers", {
+        const response = await fetch(`${API_BASE}/teachers`, {
           method: "POST",
           headers: { "Content-Type": "application/json" },
           body: JSON.stringify({ name, phone })
@@ -243,7 +243,7 @@ async function createCandidateAndGoToStep2() {
     console.log("📤 Données envoyées :", data);
 
     try {
-        const response = await fetch("${API_BASE}/submit", {
+        const response = await fetch(`${API_BASE}/submit`, {
             method: "POST",
             headers: { "Content-Type": "application/json" },
             body: JSON.stringify(data)
@@ -331,7 +331,7 @@ async function handleStep1(e) {
   e.preventDefault();
   const formData = Object.fromEntries(new FormData(e.target));
 
-  const response = await fetch("${API_BASE}/submit", {
+  const response = await fetch(`${API_BASE}/submit`, {
     method: "POST",
     headers: { "Content-Type": "application/json" },
     body: JSON.stringify(formData),
@@ -435,7 +435,7 @@ async function populateGroups() {
     ["groupB22", "Niveau B2.2"]
   ];
 
-  const response = await fetch("${API_BASE}/groupes");
+  const response = await fetch(`${API_BASE}/groupes`);
   const groups = await response.json();
 
   groupIds.forEach(([selectId, prefix]) => {
