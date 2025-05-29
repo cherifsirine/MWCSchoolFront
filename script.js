@@ -165,7 +165,7 @@ const data = {
       const phone = phoneNumber.value.trim();
 
       try {
-        const response = await fetch(`${API_BASE}/teachers`, {
+        const response = await fetch(`${API_BASE}/api/teachers`, {
           method: "POST",
           headers: { "Content-Type": "application/json" },
           body: JSON.stringify({ name, phone })
