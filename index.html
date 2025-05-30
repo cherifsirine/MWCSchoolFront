@@ -15,28 +15,28 @@
     }
 
     .logo {
-      width: 200px;
+      width: 150px; /* taille finale visible */
       height: auto;
       animation: zoomOut 3s ease-out forwards;
     }
 
     @keyframes zoomOut {
       0% {
-        transform: scale(2.5);
+        transform: scale(4);  /* très grand au début */
         opacity: 0;
       }
       50% {
         opacity: 1;
       }
       100% {
-        transform: scale(1,5);
+        transform: scale(1.5);  /* reste plus grand que 1 */
         opacity: 1;
       }
     }
   </style>
   <script>
     setTimeout(() => {
-      window.location.href = "indexwelcome.html";
+      window.location.href = "index.html";
     }, 4000); // 4 seconds
   </script>
 </head>
