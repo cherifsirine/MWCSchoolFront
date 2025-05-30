@@ -1,12 +1,18 @@
 const API_BASE = "https://mwcschoolback-production.up.railway.app";
+console.log("UserAgent:", navigator.userAgent);
+
 // Redirection automatique depuis "index.html" selon l'appareil
 const currentPage = window.location.pathname.split("/").pop();
+console.log("Page actuelle :", currentPage);
 
 if (currentPage === "index.html" || currentPage === "") {
-  const isMobile = /iPhone|iPad|iPod|Android|webOS|BlackBerry|Windows Phone/i.test(navigator.userAgent);
+  const isMobile = /Mobi|Android|iPhone|iPad|iPod/i.test(navigator.userAgent);
+  console.log("Appareil détecté :", isMobile ? "mobile" : "desktop");
+
   const target = isMobile ? "main.html" : "indexwelcome.html";
-  window.location.replace(target); // redirige immédiatement sans historique
+  window.location.replace(target);
 }
+
 
 document.addEventListener("DOMContentLoaded", () => {
   // ----- Groupe Form Logic -----
