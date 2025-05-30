@@ -6,7 +6,7 @@ if (currentPage === "index.html" || currentPage === "") {
   const isMobile = /Mobi|Android|iPhone|iPad|iPod/i.test(navigator.userAgent);
   console.log("Appareil détecté :", isMobile ? "mobile" : "desktop");
 
-  const target = isMobile ? "main.html" : "indexwelcome.html";
+  const target = isMobile ? "menu.html" : "indexwelcome.html";
   window.location.replace(target);
 }
 
