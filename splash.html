@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+  <meta charset="UTF-8">
+  <title>MWC</title>
+  <style>
+    body {
+      margin: 0;
+      background-color: white;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      height: 100vh;
+      overflow: hidden;
+    }
+
+    .logo {
+      width: 200px;
+      height: auto;
+      animation: zoomOut 3s ease-out forwards;
+    }
+
+    @keyframes zoomOut {
+      0% {
+        transform: scale(2.5);
+        opacity: 0;
+      }
+      50% {
+        opacity: 1;
+      }
+      100% {
+        transform: scale(1);
+        opacity: 1;
+      }
+    }
+  </style>
+  <script>
+    setTimeout(() => {
+      window.location.href = "index.html";
+    }, 4000); // 4 seconds
+  </script>
+</head>
+<body>
+  <img src="MWC.png" alt="Logo" class="logo">
+</body>
+</html>
