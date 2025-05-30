@@ -313,7 +313,7 @@ if (saveAndAddBtn && saveAndExitBtn) {
 
   saveAndExitBtn.addEventListener("click", async (e) => {
     e.preventDefault();
-    await handleReviewSubmission("main.html");
+    await handleReviewSubmission("menu.html");
   });
 }
 
