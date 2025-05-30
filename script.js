@@ -344,7 +344,7 @@ async function handleReviewSubmission(redirectTo) {
   });
 
   if (patchResponse.ok) {
-    alert("✅ Änderungen erfolgreich gespeichert!");
+    
     window.location.href = redirectTo;
   } else {
     alert("❌ Fehler beim Speichern.");
