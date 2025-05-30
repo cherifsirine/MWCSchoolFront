@@ -503,32 +503,50 @@ input.no-spin::-webkit-inner-spin-button {
 
 /* Phones */
 @media (max-width: 600px) {
-  .form-grid.three-columns {
-    grid-template-columns: 1fr;
-    gap: 15px;
+  /* Forcer tous les éléments à respecter la largeur de l’écran */
+  *, *::before, *::after {
+    box-sizing: border-box;
+  }
+
+  .container {
+    width: 97% !important;
+    padding: 0 !important;
+    margin: 0 auto !important;
+    max-width: 100vw;
+    overflow-x: hidden;
+    flex-direction: column !important;
   }
 
   .sidebar {
-    flex-direction: column;
-    align-items: center;
-  }
-
-  .milestone li {
-    font-size: 14px;
-    padding-left: 30px;
-  }
-
-  .milestone li::before {
-    width: 32px;
-    height: 32px;
-    font-size: 15px;
+    display: none !important;
   }
 
   .form-wrapper {
-    padding: 20px 15px;
+    width: 100% !important;
+    padding: 20px 15px !important;
+  }
+
+  .form-grid.three-columns {
+    grid-template-columns: 1fr !important;
+    gap: 15px;
+  }
+
+  .form-group {
+    width: 100%;
+  }
+
+  .form-group input,
+  .form-group select {
+    width: 100% !important;
+    max-width: 100%;
+    box-sizing: border-box;
   }
 
   button[type="submit"] {
     grid-column: span 1;
+    width: 100%;
   }
 }
+
+
+
