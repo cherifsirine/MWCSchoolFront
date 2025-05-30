@@ -552,5 +552,12 @@ input.no-spin::-webkit-inner-spin-button {
   }
 }
 
+.review-button {
+  min-width: 220px;
+  padding: 12px 36px;
+  font-size: 16px;
+}
+
+
 
 
