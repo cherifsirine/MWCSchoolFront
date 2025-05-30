@@ -502,7 +502,7 @@ input.no-spin::-webkit-inner-spin-button {
 }
 
 /* Phones */
-@media (max-width: 600px) {
+@media (max-width: 900px) {
   /* Forcer tous les éléments à respecter la largeur de l’écran */
   *, *::before, *::after {
     box-sizing: border-box;
