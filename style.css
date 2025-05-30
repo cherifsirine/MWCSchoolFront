@@ -434,9 +434,10 @@ html, body {
 }
 
 /* Submit button */
-button[type="submit"] {
-  grid-column: 2;         /* ✅ placer le bouton dans la colonne centrale */
-  justify-self: center;   /* ✅ centrer à l’intérieur de cette colonne */
+button[type="submit"],
+button[type="button"] {
+  grid-column: 2;
+  justify-self: center;
   padding: 10px 32px;
   background-color: transparent;
   color: #0077b6;
@@ -447,10 +448,12 @@ button[type="submit"] {
   transition: all 0.3s ease;
 }
 
-button[type="submit"]:hover {
+button[type="submit"]:hover,
+button[type="button"]:hover {
   background-color: #6ccf7c;
   color: #000000;
 }
+
 
 
 input.no-spin::-webkit-outer-spin-button,
@@ -542,7 +545,8 @@ input.no-spin::-webkit-inner-spin-button {
     box-sizing: border-box;
   }
 
-  button[type="submit"] {
+  button[type="submit"],
+  button[type="button"] {
     grid-column: span 1;
     width: 100%;
   }
