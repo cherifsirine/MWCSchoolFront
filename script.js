@@ -303,7 +303,8 @@ if (kinderField && anzahlField) {
   toggleNumChildrenField(); // appel immédiat après remplissage
   kinderField.addEventListener("change", toggleNumChildrenField); // écoute changement
 }
-
+const saveAndAddBtn = document.getElementById("saveAndAdd");
+const saveAndExitBtn = document.getElementById("saveAndExit");
 
 document.getElementById("saveAndAdd").addEventListener("click", async (e) => {
   e.preventDefault();
