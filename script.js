@@ -283,6 +283,7 @@ document.addEventListener("DOMContentLoaded", () => {
         }
 
         // Gestion du comportement du champ "AnzahlderKinder" dans Überprüfung.html
+// Ajouter ce bloc à la fin du remplissage automatique :
 const kinderField = document.getElementById("children");
 const anzahlField = document.getElementById("numChildren");
 
@@ -299,38 +300,52 @@ function toggleNumChildrenField() {
 }
 
 if (kinderField && anzahlField) {
-  toggleNumChildrenField(); // Lors du chargement initial
-  kinderField.addEventListener("change", toggleNumChildrenField); // Lors des changements
+  toggleNumChildrenField(); // appel immédiat après remplissage
+  kinderField.addEventListener("change", toggleNumChildrenField); // écoute changement
 }
 
 
-        reviewForm.addEventListener("submit", async (e) => {
-          e.preventDefault();
-          const formData = new FormData(reviewForm);
-          const updatedData = {};
-          let hasChanges = false;
+document.getElementById("saveAndAdd").addEventListener("click", async (e) => {
+  e.preventDefault();
+  await handleReviewSubmission("step1.html"); // retour vers formulaire 1
+});
 
-          for (const [key, value] of formData.entries()) {
-            if (initialData[key] !== value) {
-              updatedData[key] = value;
-              hasChanges = true;
-            }
-          }
+document.getElementById("saveAndExit").addEventListener("click", async (e) => {
+  e.preventDefault();
+  await handleReviewSubmission("index.html"); // retour vers accueil
+});
 
-          if (!hasChanges) return alert("ℹ️ Keine Änderungen erkannt.");
+async function handleReviewSubmission(redirectTo) {
+  const formData = new FormData(reviewForm);
+  const updatedData = {};
+  let hasChanges = false;
 
-          const patchResponse = await fetch(`${API_BASE}/update/${candidateId}`, {
-            method: "PATCH",
-            headers: { "Content-Type": "application/json" },
-            body: JSON.stringify(updatedData),
-          });
+  for (const [key, value] of formData.entries()) {
+    if (initialData[key] !== value) {
+      updatedData[key] = value;
+      hasChanges = true;
+    }
+  }
 
-          if (patchResponse.ok) {
-            alert("✅ Änderungen erfolgreich gespeichert!");
-          } else {
-            alert("❌ Fehler beim Speichern.");
-          }
-        });
+  if (!hasChanges) {
+    alert("ℹ️ Keine Änderungen erkannt.");
+    window.location.href = redirectTo;
+    return;
+  }
+
+  const patchResponse = await fetch(`${API_BASE}/update/${candidateId}`, {
+    method: "PATCH",
+    headers: { "Content-Type": "application/json" },
+    body: JSON.stringify(updatedData),
+  });
+
+  if (patchResponse.ok) {
+    alert("✅ Änderungen erfolgreich gespeichert!");
+    window.location.href = redirectTo;
+  } else {
+    alert("❌ Fehler beim Speichern.");
+  }
+}
       } catch (err) {
         console.error("❌ Fehler beim Laden der Daten:", err);
         alert("Fehler beim Laden der Daten.");
