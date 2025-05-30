@@ -282,6 +282,28 @@ document.addEventListener("DOMContentLoaded", () => {
           }
         }
 
+        // Gestion du comportement du champ "AnzahlderKinder" dans Überprüfung.html
+const kinderField = document.getElementById("children");
+const anzahlField = document.getElementById("numChildren");
+
+function toggleNumChildrenField() {
+  if (!kinderField || !anzahlField) return;
+  if (kinderField.value === "Ja") {
+    anzahlField.readOnly = false;
+    anzahlField.style.backgroundColor = "#ffffff";
+  } else {
+    anzahlField.readOnly = true;
+    anzahlField.style.backgroundColor = "#f0f0f0";
+    anzahlField.value = "0";
+  }
+}
+
+if (kinderField && anzahlField) {
+  toggleNumChildrenField(); // Lors du chargement initial
+  kinderField.addEventListener("change", toggleNumChildrenField); // Lors des changements
+}
+
+
         reviewForm.addEventListener("submit", async (e) => {
           e.preventDefault();
           const formData = new FormData(reviewForm);
