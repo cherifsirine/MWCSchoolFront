@@ -306,15 +306,18 @@ if (kinderField && anzahlField) {
 const saveAndAddBtn = document.getElementById("saveAndAdd");
 const saveAndExitBtn = document.getElementById("saveAndExit");
 
-document.getElementById("saveAndAdd").addEventListener("click", async (e) => {
-  e.preventDefault();
-  await handleReviewSubmission("step1.html"); // retour vers formulaire 1
-});
+if (saveAndAddBtn && saveAndExitBtn) {
+  saveAndAddBtn.addEventListener("click", async (e) => {
+    e.preventDefault();
+    await handleReviewSubmission("step1.html");
+  });
 
-document.getElementById("saveAndExit").addEventListener("click", async (e) => {
-  e.preventDefault();
-  await handleReviewSubmission("index.html"); // retour vers accueil
-});
+  saveAndExitBtn.addEventListener("click", async (e) => {
+    e.preventDefault();
+    await handleReviewSubmission("index.html");
+  });
+}
+
 
 async function handleReviewSubmission(redirectTo) {
   const formData = new FormData(reviewForm);
