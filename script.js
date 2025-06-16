@@ -288,6 +288,37 @@ document.addEventListener("DOMContentLoaded", () => {
             }
           }
         }
+        
+        // 🎯 Initialiser et préremplir SousNiveau0 dynamiquement en fonction de Sousniveau
+const niveauField = document.getElementById("Sousniveau");
+const unterniveauField = document.getElementById("SousNiveau0");
+
+const unterNiveaus = {
+  A1: ["A 1.1", "A 1.2"],
+  A2: ["A 2.1", "A 2.2"],
+  B1: ["B 1.1", "B 1.2"],
+  B2: ["B 2.1", "B 2.2"]
+};
+
+if (niveauField && unterniveauField) {
+  niveauField.addEventListener("change", () => {
+    unterniveauField.innerHTML = '<option value="">Bitte wählen</option>';
+    unterNiveaus[niveauField.value]?.forEach(level => {
+      const opt = document.createElement("option");
+      opt.value = level;
+      opt.textContent = level;
+      unterniveauField.appendChild(opt);
+    });
+  });
+
+  // Générer les options et appliquer la valeur existante
+  niveauField.dispatchEvent(new Event('change'));
+
+  setTimeout(() => {
+    unterniveauField.value = data["SousNiveau0"] || "";
+  }, 100);
+}
+
 
         // Gestion du comportement du champ "AnzahlderKinder" dans Überprüfung.html
 // Ajouter ce bloc à la fin du remplissage automatique :
