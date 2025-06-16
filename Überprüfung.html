@@ -71,7 +71,7 @@
     </div>
     <div class="form-group">
       <label for="numChildren">Anzahl der Kinder</label>
-      <input type="number" id="numChildren" name="AnzahlderKinder" value="0" min="0" readonly />
+      <input type="number" id="numChildren" name="AnzahlderKinder" min="0"  />
     </div>
     <div class="form-group">
       <label for="Berufsbezeichnung">Berufsbezeichnung</label>
@@ -261,6 +261,18 @@
         <option value="Nein">Nein</option>
       </select>
     </div>
+    
+        <label for="vertragUnterschrieben">Vertrag unterschrieben
+<select id="vertragUnterschrieben" name="Vertragunterschrieben">
+  <option value="Ja">Ja</option>
+  <option value="Nein">Nein</option>
+</select></label>
+
+<label for="b2TestBestanden">B2-Test bestanden
+<select id="b2TestBestanden" name="B2_x002d_Testbestanden">
+  <option value="Ja">Ja</option>
+  <option value="Nein">Nein</option>
+</select></label>
 
     <div class="form-group">
       <button type="button" id="saveAndAdd" name="action" value="addAnother" class="review-button">Speichern & neuer Kandidat</button>
