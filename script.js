@@ -50,12 +50,18 @@ document.addEventListener("DOMContentLoaded", () => {
       const lehrer = await response.json();
       if (Array.isArray(lehrer) && profSelect) {
         profSelect.innerHTML = '<option value="">Bitte wählen</option>';
+        // Supprimer les doublons par nom
+        const uniqueNames = new Set();
         lehrer.forEach(prof => {
-          const option = document.createElement("option");
-          option.value = prof.id;
-          option.textContent = prof.name;
-          profSelect.appendChild(option);
-        });
+          if (!uniqueNames.has(prof.name)) {
+            uniqueNames.add(prof.name);
+            const option = document.createElement("option");
+            option.value = prof.id;
+            option.textContent = prof.name;
+            profSelect.appendChild(option);
+  }
+});
+
       }
     } catch (err) {
       console.error("❌ Fehler beim Laden der Lehrer:", err);
